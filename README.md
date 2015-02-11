@@ -13,7 +13,7 @@ I did my best to adjust fan speed based on current *maximum* temperature of any 
 
 Also, when script is quit it setups fan mode to *automatic* "factory" settings.
 
-I do use and will this software. But in the end if anything happens to your hardware, do not blame me please.
+I use and will use this software. But in the end - if anything happens to your hardware, do not blame me please.
 
 ## Usage
 
