@@ -9,6 +9,7 @@ Might work though after adjusting script variables
 
 ## Usage
 
+    sudo apt-get install git
     git clone https://github.com/nthx/odroid-xu3-fan-control.git
     cd odroid-xu3-fan-control
     sudo ./odroid-xu3-fan-control.sh
