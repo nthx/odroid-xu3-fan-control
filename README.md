@@ -7,6 +7,14 @@ Will only work on *Ubuntu 14.04.1*. Was not tested anywhere else.
 
 Might work though after adjusting script variables
 
+## Safety
+
+I did my best to adjust fan speed based on current *maximum* temperature of any sensor.
+
+Also, when script is quit it setups fan mode to *automatic* "factory" settings.
+
+I do use and will this software. But in the end if anything happens to your hardware, do not blame me please.
+
 ## Usage
 
     sudo apt-get install git
