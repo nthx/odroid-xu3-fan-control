@@ -38,17 +38,21 @@ do
   current_max_temp=`cat ${TEMPERATURE_FILE} | cut -d: -f2 | sort -nr | head -1`
   logger -t $0 "current_max_temp: ${current_max_temp}"
 
-  if (( ${current_max_temp} > 75000 )); then
+  if (( ${current_max_temp} >= 75000 )); then
     speed_fan_to=255
-  elif (( ${current_max_temp} > 70000 )); then
+  elif (( ${current_max_temp} >= 70000 )); then
     speed_fan_to=200
-  elif (( ${current_max_temp} > 65000 )); then
+  elif (( ${current_max_temp} >= 68000 )); then
     speed_fan_to=130
-  elif (( ${current_max_temp} > 60000 )); then
+  elif (( ${current_max_temp} >= 66000 )); then
+    speed_fan_to=70 
+  elif (( ${current_max_temp} >= 63000 )); then
+    speed_fan_to=65 
+  elif (( ${current_max_temp} >= 60000 )); then
     speed_fan_to=60
-  elif (( ${current_max_temp} > 53000 )); then
+  elif (( ${current_max_temp} >= 55000 )); then
     speed_fan_to=50
-  elif (( ${current_max_temp} > 50000 )); then
+  elif (( ${current_max_temp} >= 53000 )); then
     speed_fan_to=30
   else
     speed_fan_to=2
