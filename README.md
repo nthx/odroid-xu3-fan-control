@@ -22,3 +22,10 @@ I use and will use this software. But in the end - if anything happens to your h
     cd odroid-xu3-fan-control
     sudo ./odroid-xu3-fan-control.sh
     
+
+## Installation
+
+To make it start when system boots:
+
+    ln -s ~/odroid-xu3-fan-control/odroid-xu3-fan-control.sh /etc/init.d/
+    sudo update-rc.d odroid-xu3-fan-control.sh defaults
