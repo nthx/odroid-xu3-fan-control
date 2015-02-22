@@ -29,3 +29,5 @@ To make it start when system boots:
 
     sudo ln -s ~/odroid-xu3-fan-control/odroid-xu3-fan-control.sh /etc/init.d/
     sudo update-rc.d odroid-xu3-fan-control.sh defaults
+    
+(although, currently it causes `sudo poweroff` to block powering down :-( )
