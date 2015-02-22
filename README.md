@@ -3,9 +3,11 @@ Makes Odroid XU3 Lite fan silent on idle load
 
 ## Odroid XU3 Lite
 
-Will only work on *Ubuntu 14.04.1*. Was not tested anywhere else. 
+Will only work on:
+* *Ubuntu 14.04.1*
+* Arch Linux (3.10.69-1-ARCH)
 
-Might work though after adjusting script variables
+Was not tested anywhere else. Might work though after adjusting script variables
 
 ## Safety
 
