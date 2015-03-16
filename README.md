@@ -31,7 +31,9 @@ To make it start when system boots:
 edit odroid-fan-controller and add the path of the odroid-xu3-fan-control.sh script (full-pathname), then do the following to add it
 to the runlevels
 
-    sudo ln -s ~/odroid-xu3-fan-control/odroid-fan-controller /etc/init.d/
+    cd /etc/init.d/
+    #adjust to correct, absolute path below
+    sudo ln -s ~/odroid-xu3-fan-control/odroid-fan-controller
     sudo update-rc.d odroid-fan-controller defaults
 
 you can also use the following to start the controller
