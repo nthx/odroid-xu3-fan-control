@@ -23,13 +23,23 @@ I use and will use this software. But in the end - if anything happens to your h
     git clone https://github.com/nthx/odroid-xu3-fan-control.git
     cd odroid-xu3-fan-control
     sudo ./odroid-xu3-fan-control.sh
-    
 
 ## Installation
 
 To make it start when system boots:
 
-    sudo ln -s ~/odroid-xu3-fan-control/odroid-xu3-fan-control.sh /etc/init.d/
-    sudo update-rc.d odroid-xu3-fan-control.sh defaults
-    
-(although, currently it causes `sudo poweroff` to block powering down :-( )
+edit odroid-fan-controller and add the path of the odroid-xu3-fan-control.sh script (full-pathname), then do the following to add it
+to the runlevels
+
+    sudo ln -s ~/odroid-xu3-fan-control/odroid-fan-controller /etc/init.d/
+    sudo update-rc.d odroid-fan-controller defaults
+
+you can also use the following to start the controller
+
+    sudo /etc/init.d/odroid-fan-controller start
+
+or
+
+    sudo /etc/init.d/odroid-fan-controller stop
+
+to stop the controller
