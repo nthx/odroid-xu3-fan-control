@@ -9,11 +9,17 @@ Will only work on:
 
 Was not tested anywhere else. Might work though after adjusting script variables
 
-## Safety
+## Precautions
+
+### Only *Odroid XU3 Lite* is supported
+
+Users report it *does not* work on XU4
+
+### Is it safe to use?
 
 I did my best to adjust fan speed based on current *maximum* temperature of any sensor.
 
-Also, when script is quit it setups fan mode to *automatic* "factory" settings.
+Also, when script quits it brings fan mode back to *automatic* "factory" settings.
 
 I use and will use this software. But in the end - if anything happens to your hardware, do not blame me please.
 

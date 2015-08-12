@@ -30,6 +30,19 @@ function cleanup {
 }
 trap cleanup EXIT
 
+function exit_xu3_only_supported {
+  ${DEBUG} && logger -t $LOGGER_NAME "event: non-xu3 $1"
+  exit 2
+}
+if [ ! -f $TEMPERATURE_FILE ]; then
+  exit_xu3_only_supported "a"
+elif [ ! -f $FAN_MODE_FILE ]; then
+  exit_xu3_only_supported "b"
+elif [ ! -f $FAN_SPEED_FILE ]; then
+  exit_xu3_only_supported "c"
+fi
+
+
 current_max_temp=`cat ${TEMPERATURE_FILE} | cut -d: -f2 | sort -nr | head -1`
 echo "fan control started. Current max temp: ${current_max_temp}"
 echo "For more logs see:"
