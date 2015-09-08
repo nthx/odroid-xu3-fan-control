@@ -28,7 +28,6 @@ TEMPERATURE_FILE="/sys/devices/10060000.tmu/temp"
 FAN_MODE_FILE="/sys/devices/odroid_fan.$FAN/fan_mode"
 FAN_SPEED_FILE="/sys/devices/odroid_fan.$FAN/pwm_duty"
 TEST_EVERY=3 #seconds
-new_fan_speed_default=80
 LOGGER_NAME=odroid-xu3-fan-control
 
 #make sure after quiting script fan goes to auto control
