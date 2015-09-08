@@ -15,10 +15,18 @@ if (( $EUID != 0 )); then
    exit 1
 fi
 
+if [ -f /sys/devices/odroid_fan.13/fan_mode ]; then
+   FAN=13
+elif [ -f /sys/devices/odroid_fan.14/fan_mode ]; then
+   FAN=14
+else
+   echo "This machine is not supported."
+   exit 1
+fi
 
 TEMPERATURE_FILE="/sys/devices/10060000.tmu/temp"
-FAN_MODE_FILE="/sys/devices/odroid_fan.14/fan_mode"
-FAN_SPEED_FILE="/sys/devices/odroid_fan.14/pwm_duty"
+FAN_MODE_FILE="/sys/devices/odroid_fan.$FAN/fan_mode"
+FAN_SPEED_FILE="/sys/devices/odroid_fan.$FAN/pwm_duty"
 TEST_EVERY=3 #seconds
 new_fan_speed_default=80
 LOGGER_NAME=odroid-xu3-fan-control
