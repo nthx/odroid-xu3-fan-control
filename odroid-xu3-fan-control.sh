@@ -31,6 +31,12 @@ TEST_EVERY=3 #seconds
 new_fan_speed_default=80
 LOGGER_NAME=odroid-xu3-fan-control
 
+# XU4 support
+if [ ! -f $FAN_MODE_FILE ]; then
+   FAN_MODE_FILE="/sys/devices/odroid_fan.13/fan_mode"
+   FAN_SPEED_FILE="/sys/devices/odroid_fan.13/pwm_duty"
+fi
+
 #make sure after quiting script fan goes to auto control
 function cleanup {
   ${DEBUG} && logger -t $LOGGER_NAME "event: quit; temp: auto"
