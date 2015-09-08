@@ -1,5 +1,5 @@
 # odroid-xu3-fan-control
-Makes Odroid XU3 Lite fan silent on idle load
+Makes Odroid XU3 Lite / XU4 fan silent on idle load
 
 ## Odroid XU3 Lite
 
@@ -11,9 +11,10 @@ Was not tested anywhere else. Might work though after adjusting script variables
 
 ## Precautions
 
-### Only *Odroid XU3 Lite* is supported
+### *Odroid XU3 Lite* and *Odroid XU4* are supported
 
-Users report it *does not* work on XU4
+I only poses and test myself on XU3 Lite
+Users report it works on XU4
 
 ### Is it safe to use?
 
@@ -26,28 +27,24 @@ I use and will use this software. But in the end - if anything happens to your h
 ## Usage
 
     sudo apt-get install git
+    mkdir -p /home/odroid/
     git clone https://github.com/nthx/odroid-xu3-fan-control.git
-    cd odroid-xu3-fan-control
+    cd odroid-xu3-fan-control/
     sudo ./odroid-xu3-fan-control.sh
 
 ## Installation
 
 To make it start when system boots:
 
-edit odroid-fan-controller and add the path of the odroid-xu3-fan-control.sh script (full-pathname), then do the following to add it
-to the runlevels
-
     cd /etc/init.d/
-    #adjust to correct, absolute path below
-    sudo ln -s ~/odroid-xu3-fan-control/odroid-fan-controller
+    sudo ln -s /home/odroid/odroid-xu3-fan-control/odroid-fan-controller
     sudo update-rc.d odroid-fan-controller defaults
 
-you can also use the following to start the controller
+To start manually
 
     sudo /etc/init.d/odroid-fan-controller start
 
-or
+To stop manually
 
     sudo /etc/init.d/odroid-fan-controller stop
 
-to stop the controller
