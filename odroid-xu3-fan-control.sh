@@ -42,11 +42,11 @@ function exit_xu3_only_supported {
   exit 2
 }
 if [ ! -f $TEMPERATURE_FILE ]; then
-  exit_xu3_only_supported "a"
+  exit_xu3_only_supported "no temp file"
 elif [ ! -f $FAN_MODE_FILE ]; then
-  exit_xu3_only_supported "b"
+  exit_xu3_only_supported "no fan mode file"
 elif [ ! -f $FAN_SPEED_FILE ]; then
-  exit_xu3_only_supported "c"
+  exit_xu3_only_supported "no fan speed file"
 fi
 
 
