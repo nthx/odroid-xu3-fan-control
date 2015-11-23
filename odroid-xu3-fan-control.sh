@@ -6,7 +6,7 @@
 # See README.md for details.
 
 #set to false to suppress logs
-DEBUG=true
+DEBUG=false
 
 # Make sure only root can run our script
 if (( $EUID != 0 )); then
@@ -55,9 +55,11 @@ echo "fan control started. Current max temp: ${current_max_temp}"
 echo "For more logs see:"
 echo "sudo tail -f /var/log/syslog"
 
+prev_fan_speed=0
+echo 0 > ${FAN_MODE_FILE} #to be sure we can manage fan
+
 while [ true ];
 do
-  echo 0 > ${FAN_MODE_FILE} #to be sure we can manage fan
 
   current_max_temp=`cat ${TEMPERATURE_FILE} | cut -d: -f2 | sort -nr | head -1`
   ${DEBUG} && logger -t $LOGGER_NAME "event: read_max; temp: ${current_max_temp}"
@@ -70,9 +72,9 @@ do
   elif (( ${current_max_temp} >= 68000 )); then
     new_fan_speed=130
   elif (( ${current_max_temp} >= 66000 )); then
-    new_fan_speed=70 
+    new_fan_speed=70
   elif (( ${current_max_temp} >= 63000 )); then
-    new_fan_speed=65 
+    new_fan_speed=65
   elif (( ${current_max_temp} >= 60000 )); then
     new_fan_speed=60
   elif (( ${current_max_temp} >= 58000 )); then
@@ -82,8 +84,12 @@ do
   else
     new_fan_speed=2
   fi
-  ${DEBUG} && logger -t $LOGGER_NAME "event: adjust; speed: ${new_fan_speed}"
-  echo ${new_fan_speed} > ${FAN_SPEED_FILE}
+
+  if (( ${prev_fan_speed} != ${new_fan_speed} )); then
+    ${DEBUG} && logger -t $LOGGER_NAME "event: adjust; speed: ${new_fan_speed}"
+    echo ${new_fan_speed} > ${FAN_SPEED_FILE}
+    prev_fan_speed=${new_fan_speed}
+  fi
 
   sleep ${TEST_EVERY}
 done
