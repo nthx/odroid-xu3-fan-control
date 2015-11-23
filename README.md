@@ -31,6 +31,7 @@ I use and will use this software. But in the end - if anything happens to your h
 
     sudo apt-get install git
     mkdir -p /home/odroid/
+    cd /home/odroid/ #make sure you can write to this directory; otherwise update paths below
     git clone https://github.com/nthx/odroid-xu3-fan-control.git
     cd odroid-xu3-fan-control/
     sudo ./odroid-xu3-fan-control.sh
