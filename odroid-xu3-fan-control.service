@@ -2,7 +2,6 @@
 
 [Unit]
 Description=odroid-xu3-fan-control
-Requires=network.target
 
 [Service]
 Type=simple
@@ -10,9 +9,9 @@ WorkingDirectory=/home/odroid/odroid-xu3-fan-control
 ExecStart=/usr/home/odroid/odroid-xu3-fan-control/odroid-xu3-fan-control.sh
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
-User=www-data
+User=odroid
 ExecStartPre=/bin/mkdir -p /run/odroid-xu3-fan-control
-ExecStartPre=/bin/chown www-data:www-data /run/odroid-xu3-fan-control
+ExecStartPre=/bin/chown odroid:odroid /run/odroid-xu3-fan-control
 ExecStartPre=/bin/chmod 755 /run/odroid-xu3-fan-control
 PermissionsStartOnly=true
 
