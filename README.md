@@ -38,6 +38,8 @@ I use and will use this software. But in the end - if anything happens to your h
 
 ## Installation
 
+### On a system without systemd
+
 To make it start when system boots:
 
     cd /etc/init.d/
@@ -52,3 +54,17 @@ To stop manually
 
     sudo /etc/init.d/odroid-fan-controller stop
 
+### On a system with systemd
+
+To make it start when system boots:
+
+    cp odroid-xu3-fan-control.service /etc/systemd/system
+    
+
+To start manually
+
+    sudo service odroid-fan-controller start
+
+To stop manually
+
+    sudo service odroid-fan-controller stop
