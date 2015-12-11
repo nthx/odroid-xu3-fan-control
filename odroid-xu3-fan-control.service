@@ -6,7 +6,7 @@ Description=odroid-xu3-fan-control
 [Service]
 Type=simple
 WorkingDirectory=/home/odroid/odroid-xu3-fan-control
-ExecStart=/usr/home/odroid/odroid-xu3-fan-control/odroid-xu3-fan-control.sh
+ExecStart=/home/odroid/odroid-xu3-fan-control/odroid-xu3-fan-control.sh
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
 User=odroid
