@@ -59,6 +59,8 @@ To stop manually
 To make it start when system boots:
 
     sudo cp odroid-xu3-fan-control.service /etc/systemd/system
+    sudo systemctl enable /etc/systemd/system/odroid-xu3-fan-control.service
+    sudo systemctl start odroid-xu3-fan-control.service
     
 
 To start manually
